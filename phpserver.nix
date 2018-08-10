@@ -21,7 +21,7 @@
         documentRoot = "/srv";
         enablePHP = true;
         extraConfig = ''
-          DirectoryIndex index.php
+          DirectoryIndex index.html
         '';
       };
 
@@ -35,5 +35,47 @@
       environment.systemPackages = with pkgs; [
         phpPackages.composer
       ];
+
+#     nginx alternative to apache
+#
+#     services = {
+#       nginx = {
+#         enable = true;
+#         virtualHosts = {
+#           "localhost" = {
+#             root = "/srv";
+#             locations = {
+#               "~ \\.php$" = {
+#                 extraConfig = ''
+#                   fastcgi_pass  unix:/run/phpfpm/mypool;
+#                 '';
+#               };
+#             };
+#             extraConfig = ''
+#               index index.php;
+#             '';
+#           };
+#         };
+#       };
+#
+#       phpfpm.pools = {
+#         mypool = {
+#           listen = "/run/phpfpm/mypool";
+#           extraConfig = ''
+#             listen.owner = nginx
+#             listen.group = nginx
+#             user = nobody
+#             group = nogroup
+#             pm = dynamic
+#             pm.max_children = 5
+#             pm.start_servers = 2
+#             pm.min_spare_servers = 1
+#             pm.max_spare_servers = 3
+#             php_admin_value[date.timezone] = Europe/Berlin
+#             php_admin_value[openssl.cafile] = /etc/ssl/certs/ca-certificates.crt
+#           '';
+#         };
+#       };
+#     };
     };
 }
