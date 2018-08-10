@@ -1,6 +1,5 @@
 {
     "require": {
-        "phpoffice/phpword": "^0.15.0",
-        "zurb/foundation": "^6.4"
+        "phpoffice/phpword": "^0.15.0"
     }
 }

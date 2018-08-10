@@ -10,3 +10,21 @@ and run `composer install`. Now you can call the `index.php` in your browser.
 
 To stop the VM, run `$ nixops stop -d NAME`.
 
+
+
+
+# NixOS commands
+```
+$ nixops create -d NAME phpserver.nix
+
+
+$ nixops list
+
+
+$ nixops deploy -d NAME --allow-reboot
+$ nixops ssh -d NAME phpserver
+$ nixops stop -d NAME
+
+$ nixops destroy -d NAME
+$ nixops delete -d NAME
+```

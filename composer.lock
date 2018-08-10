@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c8f838bc59a224c34f113c9425111e8",
+    "content-hash": "f31f70ac4830337e8333e9a4f2dcb8f0",
     "packages": [
         {
             "name": "pclzip/pclzip",
@@ -251,45 +251,6 @@
                 "zf"
             ],
             "time": "2018-04-25T15:48:53+00:00"
-        },
-        {
-            "name": "zurb/foundation",
-            "version": "v6.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zurb/foundation-sites.git",
-                "reference": "4e21634356da296edd2f1c3e65d91140f991008b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zurb/foundation-sites/zipball/4e21634356da296edd2f1c3e65d91140f991008b",
-                "reference": "4e21634356da296edd2f1c3e65d91140f991008b",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ZURB, Inc.",
-                    "email": "foundation@zurb.com",
-                    "homepage": "http://zurb.com"
-                }
-            ],
-            "description": "The most advanced responsive front-end framework in the world.",
-            "homepage": "http://foundation.zurb.com",
-            "keywords": [
-                "JS",
-                "css",
-                "framework",
-                "mobile-first",
-                "responsive",
-                "sass",
-                "scss"
-            ],
-            "time": "2017-08-18T15:32:36+00:00"
         }
     ],
     "packages-dev": [],
