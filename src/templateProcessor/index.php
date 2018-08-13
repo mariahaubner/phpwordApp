@@ -19,7 +19,7 @@
     </div>
 
 <!-- TODO: Adjust Form and corresponding JSON in export.php -->
-    
+
     <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
             <div class="callout"><h5>We bet you&rsquo;ll need a form somewhere:</h5>
@@ -69,9 +69,9 @@
                                 2</label>
                         </div>
                         <div class="large-6 medium-6 cell">
-                            <label>Check these out</label>
-                            <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-                            <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+                            <label>Template Chooser</label>
+                            <input id="checkbox1" type="checkbox"><label for="checkbox1">Orange Invitation</label>
+                            <input id="checkbox2" type="checkbox"><label for="checkbox2">White Invitation</label>
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x">
@@ -102,3 +102,6 @@
 
 </body>
 </html>
+
+<?php
+

@@ -7,6 +7,47 @@ use PhpOffice\PhpWord\TemplateProcessor;
 if (isset($_POST['data'])) {
     export();
 } else {
+    error();
+}
+
+function export()
+{
+    #TODO: create Invitation.docx!
+    $templateProcessor = new TemplateProcessor('Invitation.docx');
+    $data = json_decode($_POST['data']);
+
+    if (!$data) {
+        error();
+    }
+
+    $index = 0;
+    $files = [];
+
+    foreach ($data as $set) {
+        $index++;
+        $filename = WORD_FILES . "temp_$index.docx";
+
+        $templateProcessor->setValue('name', $set['name']);
+        $templateProcessor->setValue(
+            ['city', 'street'],
+            [$set['city'], $set['street']]
+        );
+        $templateProcessor->setValue('salutation', 'Dear ' . $set['name']);
+
+        $templateProcessor->saveAs($filename);
+
+        $files[] = $filename;
+    }
+
+    $file = createZipFile($files, 'invitations');
+
+    download($file);
+
+    #TODO: Redirect
+}
+
+function error()
+{
     echo <<<EOF
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -39,37 +80,6 @@ if (isset($_POST['data'])) {
 </body>
 </html>
 EOF;
-
-}
-
-function export()
-{
-    $templateProcessor = new TemplateProcessor('Template.docx');
-    $data = json_decode($_POST['data']);
-    $index = 0;
-    $files = [];
-
-    foreach ($data as $set) {
-        $index++;
-        $filename = WORD_FILES . "temp_$index.docx";
-
-        $templateProcessor->setValue('name', $set['name']);
-        $templateProcessor->setValue(
-            ['city', 'street'],
-            [$set['city'], $set['street']]
-        );
-        $templateProcessor->setValue('salutation', $set['salutation']);
-
-        $templateProcessor->saveAs($filename);
-
-        $files[] = $filename;
-    }
-
-    $file = createZipFile($files, 'invitations');
-
-    download($file);
-
-    #TODO: Redirect
 }
 
 
