@@ -3,7 +3,7 @@ use PhpOffice\PhpWord\PhpWord;
 define('WORD_FILES', '/assets/wordFiles/');
 
 
-function createZipDownload($files, $name) {
+function createZipFile($files, $name) {
     $zip           = new ZipArchive();
     $zipname       = $name . '.zip';
     $file          = WORD_FILES . $zipname;
