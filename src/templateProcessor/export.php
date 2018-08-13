@@ -12,13 +12,14 @@ if (isset($_POST['data'])) {
 
 function export()
 {
-    #TODO: create Invitation.docx!
-    $templateProcessor = new TemplateProcessor('Invitation.docx');
     $data = json_decode($_POST['data']);
 
     if (!$data) {
         error();
     }
+
+    #TODO: create Invitation.docx!
+    $templateProcessor = new TemplateProcessor('Invitation.docx');
 
     $index = 0;
     $files = [];

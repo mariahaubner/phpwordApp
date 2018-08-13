@@ -14,7 +14,7 @@
 <div class="grid-container">
     <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-            <h1>Word document creation with CD templates using PHPWord and XPath</h1>
+            <h1>Insert a DataSet for the TemplateProcessor</h1>
         </div>
     </div>
 

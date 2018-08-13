@@ -1,5 +1,4 @@
 <?php
-use PhpOffice\PhpWord\PhpWord;
 define('WORD_FILES', '/assets/wordFiles/');
 
 
