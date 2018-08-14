@@ -3,6 +3,12 @@
 include_once '../includes.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
+$foo = [
+    ['name' => 'joe', 'street' => '123 Memory Lane', 'Springfield'],
+    ['name' => 'bob', 'street' => '321 Main Road', 'Baskerville']
+];
+$_POST['data'] = json_encode($foo);
+
 
 if (isset($_POST['data'])) {
     export();
@@ -10,45 +16,49 @@ if (isset($_POST['data'])) {
     error();
 }
 
-function export()
-{
+function export() {
     $data = json_decode($_POST['data']);
 
+    var_dump($data);
     if (!$data) {
         error();
     }
 
-    #TODO: create Invitation.docx!
-    $templateProcessor = new TemplateProcessor('Invitation.docx');
+    try {
+        $templateProcessor = new TemplateProcessor('Invitation.docx');
 
-    $index = 0;
-    $files = [];
+        $index = 0;
+        $files = [];
 
-    foreach ($data as $set) {
-        $index++;
-        $filename = WORD_FILES . "temp_$index.docx";
 
-        $templateProcessor->setValue('name', $set['name']);
-        $templateProcessor->setValue(
-            ['city', 'street'],
-            [$set['city'], $set['street']]
-        );
-        $templateProcessor->setValue('salutation', 'Dear ' . $set['name']);
+        foreach ($data as $set) {
+            $index++;
+            $filename = WORD_FILES . "temp_$index.docx";
 
-        $templateProcessor->saveAs($filename);
+            $templateProcessor->setValue('name', $set['name']);
+            $templateProcessor->setValue(
+                ['city', 'street'],
+                [$set['city'], $set['street']]
+            );
+            $templateProcessor->setValue('salutation', 'Dear ' . $set['name']);
 
-        $files[] = $filename;
+            $templateProcessor->saveAs($filename);
+
+            $files[] = $filename;
+        }
+
+        $file = createZipFile($files, 'invitations');
+
+        download($file, '/src/templateProcessor/index.php');
+
+        #TODO: Redirect
+    } catch (\Exception $e) {
+        echo "shit \n";
+        var_dump($e);
     }
-
-    $file = createZipFile($files, 'invitations');
-
-    download($file);
-
-    #TODO: Redirect
 }
 
-function error()
-{
+function error() {
     echo <<<EOF
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">

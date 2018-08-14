@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 <head>
@@ -18,7 +17,7 @@
         </div>
     </div>
 
-<!-- TODO: Adjust Form and corresponding JSON in export.php -->
+    <!-- TODO: Adjust Form and corresponding JSON in export.php -->
 
     <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
@@ -82,14 +81,6 @@
                     </div>
                     <input type="submit" class="button" value="Submit">
                 </form>
-            </div>
-
-            <div class="large-4 medium-4 cell">
-                <h5>Try one of these buttons:</h5>
-                <p><a href="#" class="button">Simple Button</a><br/>
-                    <a href="#" class="success button">Success Btn</a><br/>
-                    <a href="#" class="alert button">Alert Btn</a><br/>
-                    <a href="#" class="secondary button">Secondary Btn</a></p>
             </div>
         </div>
     </div>

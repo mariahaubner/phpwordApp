@@ -1,18 +1,26 @@
 <?php
 define('WORD_FILES', '/assets/wordFiles/');
+define('BASE_URL', 'http://phpword.froscon2018');
+
+require_once '/srv/vendor/phpoffice/phpword/bootstrap.php';
 
 
-function createZipFile($files, $name) {
-    $zip           = new ZipArchive();
-    $zipname       = $name . '.zip';
-    $file          = WORD_FILES . $zipname;
+/**
+ * @param array $files
+ * @param string $zipName
+ * @return null|string
+ */
+function createZipFile($files, $zipName) {
+    $zip     = new ZipArchive();
+    $zipName = $zipName . '.zip';
+    $file    = WORD_FILES . $zipName;
 
     if (file_exists($file)) {
         unlink($file);
     }
 
     if ($zip->open($file, ZipArchive::CREATE) !== true) {
-        error_log(print_r("cannot open <$zipname>\n", 1));
+        error_log(print_r("cannot open <$zipName>\n", 1));
         return null;
     }
 
@@ -22,14 +30,20 @@ function createZipFile($files, $name) {
 
     $zip->close();
 
-    return $zipname;
+    return $zipName;
 }
 
 
-
-function download($file) {
+/**
+ * @param string $fileName
+ * @param string $redirect
+ */
+function download($fileName, $redirect) {
     header('Content-type: octet/stream');
-    header('Content-Disposition: attachment; filename="' . $file . '"');
+    header('Content-Disposition: attachment; filename="' . $fileName . '"');
 
-    print_r($file);
+    print_r($fileName);
+
+    header('Location: ' . BASE_URL . $redirect);
+    die();
 }
