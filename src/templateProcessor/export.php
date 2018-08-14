@@ -3,54 +3,36 @@
 include_once '../includes.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
-$foo = [
-    ['name' => 'joe', 'street' => '123 Memory Lane', 'Springfield'],
-    ['name' => 'bob', 'street' => '321 Main Road', 'Baskerville']
-];
-$_POST['data'] = json_encode($foo);
 
-
-if (isset($_POST['data'])) {
+if (isset($_POST['name'])) {
     export();
 } else {
     error();
 }
 
 function export() {
-    $data = json_decode($_POST['data']);
 
-    if (!$data) {
-        error();
-    }
+    $filename = WORD_FILES . "Invitation_${$_POST['name']}.docx";
 
     try {
         $templateProcessor = new TemplateProcessor(WORD_FILES . 'Invitation.docx');
+        $templateProcessor->setValue('salutation', 'Dear ' . $_POST['name']);
+        $templateProcessor->setValue(
+            ['city', 'street'],
+            [$_POST['city'], $_POST['street']]
+        );
 
-        $index = 0;
-        $files = [];
+        /**
+         * TODO:
+         * [Tue Aug 14 18:42:09.494944 2018] [php7:warn] [pid 1048] [client 192.168.56.1:42250] PHP Warning:
+         * copy(/srv/assets/wordFiles/Invitation_joe.docx): failed to open stream:
+         * Permission denied in /srv/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php on line 431,
+         * referer: http://phpword.froscon2018/src/templateProcessor/index.php
+         */
+        $templateProcessor->saveAs($filename);
 
+        download($filename, '/src/templateProcessor/index.php');
 
-        foreach ($data as $set) {
-            $index++;
-            $filename = WORD_FILES . "temp_$index.docx";
-
-            $templateProcessor->setValue('name', $set['name']);
-            $templateProcessor->setValue(
-                ['city', 'street'],
-                [$set['city'], $set['street']]
-            );
-            $templateProcessor->setValue('salutation', 'Dear ' . $set['name']);
-
-            $templateProcessor->saveAs($filename);
-
-            $files[] = $filename;
-        }
-
-        $file = createZipFile($files, 'invitations');
-
-        download($file, '/src/templateProcessor/index.php');
-
-        #TODO: Redirect
     } catch (\Exception $e) {
         error_log(print_r($e, 1));
         error();
