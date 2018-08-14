@@ -1,8 +1,8 @@
 <?php
-define('WORD_FILES', '/assets/wordFiles/');
+define('WORD_FILES', '/srv/assets/wordFiles/');
 define('BASE_URL', 'http://phpword.froscon2018');
 
-require_once '/srv/vendor/phpoffice/phpword/bootstrap.php';
+require_once '/srv/vendor/autoload.php';
 
 
 /**

@@ -19,13 +19,12 @@ if (isset($_POST['data'])) {
 function export() {
     $data = json_decode($_POST['data']);
 
-    var_dump($data);
     if (!$data) {
         error();
     }
 
     try {
-        $templateProcessor = new TemplateProcessor('Invitation.docx');
+        $templateProcessor = new TemplateProcessor(WORD_FILES . 'Invitation.docx');
 
         $index = 0;
         $files = [];
@@ -53,8 +52,8 @@ function export() {
 
         #TODO: Redirect
     } catch (\Exception $e) {
-        echo "shit \n";
-        var_dump($e);
+        error_log(print_r($e, 1));
+        error();
     }
 }
 
