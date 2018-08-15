@@ -1,0 +1,15 @@
+{% set heading = 'Generate a Word file with custom Text' %}
+{% extends 'templates/layout.twig' %}
+
+{% block content %}
+    <h5>Generate Word and use IO Factory to merge it with Template</h5>
+    <form name="ioFactoryForm" method="post" action="/src/ioFactory/export.php">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label><b>Content:</b></label>
+                <textarea name="content" placeholder="Insert your text" rows="15"></textarea>
+            </div>
+        </div>
+        <input type="submit" class="button" value="Submit">
+    </form>
+{% endblock %}
