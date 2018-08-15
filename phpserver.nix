@@ -9,7 +9,7 @@
         virtualbox.memorySize = 1024;
         virtualbox.sharedFolders = {
           froscon2018 = {
-            hostPath = "/home/maria/froscon2018";
+            hostPath = builtins.toString ./.;
             readOnly = false;
           };
         };
