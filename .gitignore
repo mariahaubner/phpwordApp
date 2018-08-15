@@ -1,5 +1,4 @@
 .idea/
-vendor/
+/vendor/
+/assets/exports/
 
-src/protokoll
-src/example1.php

@@ -25,7 +25,7 @@ function export() {
             [$city, $street]
         );
 
-        $templateProcessor->saveAs(WORD_FILES . $filename);
+        $templateProcessor->saveAs(WORD_EXPORTS . $filename);
 
         download($filename, '/src/templateProcessor/index.php');
 
