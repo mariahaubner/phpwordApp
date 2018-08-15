@@ -1,0 +1,46 @@
+{% set heading = 'Generate a Word file with custom Text' %}
+{% extends 'templates/layout.twig' %}
+
+{% block content %}
+    <h5>Generate Word</h5>
+    <form name="xPathForm" method="post" action="/src/xPath/export.php">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label><b>Content:</b></label>
+                <textarea name="content" placeholder="Insert your text" rows="15"></textarea>
+            </div>
+        </div>
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 cell">
+                <label><b>Use this template?</b></label>
+                <input type="radio" name="templateChoice" value="orange" id="templateOrange" disabled>
+                <label for="templateOrange">Orange Template</label>
+                <input type="radio" name="templateChoice" value="blue" id="templateBlue" checked>
+                <label for="templateBlue">Blue, please</label>
+            </div>
+            <div class="cell large-3">
+                <div class="card" style="width: 250px;">
+                    <div class="card-divider">
+                        Export Design
+                    </div>
+                    <img src="assets/img/templateOrange.jpg">
+                    <div class="card-section">
+                        <p>Orange template</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell large-3">
+                <div class="card" style="width: 250px;">
+                    <div class="card-divider">
+                        Export Design
+                    </div>
+                    <img src="assets/img/templateBlue.jpg">
+                    <div class="card-section">
+                        <p>Blue template</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="button" value="Submit">
+    </form>
+{% endblock %}
