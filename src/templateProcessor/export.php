@@ -4,7 +4,7 @@ include_once '../includes.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
 
-if (isset($_POST['name'])) {
+if (isset($_POST['name']) && $_POST['name'] !== '') {
     export();
 } else {
     error();
