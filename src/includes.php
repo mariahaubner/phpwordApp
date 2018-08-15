@@ -6,9 +6,27 @@ define('WORD_FILES', '/srv/assets/wordFiles/');
 define('WORD_EXPORTS', '/tmp/exports');
 define('BASE_URL', '//');
 
-mkdir(WORD_EXPORTS);
+@mkdir(WORD_EXPORTS);
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+/**
+ * @param string $fileName
+ */
+function download($fileName)
+{
+    header('Content-type: octet/stream');
+    header('Content-Disposition: attachment; filename="' . $fileName . '"');
+    readfile(WORD_EXPORTS . $fileName);
+    die();
+}
+
+function error()
+{
+    $host = $_SERVER['HTTP_HOST'];
+    header("Location: http://$host/index.php?page=error");
+    exit;
+}
 
 /**
  * @param array $files
@@ -37,22 +55,4 @@ function createZipFile($files, $zipName)
     $zip->close();
 
     return $zipName;
-}
-
-/**
- * @param string $fileName
- */
-function download($fileName)
-{
-    header('Content-type: octet/stream');
-    header('Content-Disposition: attachment; filename="' . $fileName . '"');
-    readfile(WORD_EXPORTS . $fileName);
-    die();
-}
-
-function error()
-{
-    $host = $_SERVER['HTTP_HOST'];
-    header("Location: http://$host/index.php?page=error");
-    exit;
 }

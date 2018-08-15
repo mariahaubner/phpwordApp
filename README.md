@@ -9,7 +9,7 @@ Now you can call the `index.php` in your browser.
 
 To stop the VM, run `$ nixops stop -d NAME`.
 
-# NixOS commands
+# NixOps commands
 
 ```
 $ nixops create -d NAME phpserver.nix
@@ -25,3 +25,8 @@ $ nixops stop -d NAME
 $ nixops destroy -d NAME
 $ nixops delete -d NAME
 ```
+
+
+#License
+
+MIT

@@ -1,26 +1,26 @@
 {% set heading = 'Insert a DataSet for the TemplateProcessor' %}
 {% extends 'templates/layout.twig' %}
 {% block content %}
-<h5>Guest List for the party</h5>
-<form name="templateProcessor" method="post" action="/src/templateProcessor/export.php">
-    <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <label><b>Name:</b></label>
-            <input type="text" name="name" placeholder="name"/>
+    <h5>Guest List for the party</h5>
+    <form name="templateProcessorForm" method="post" action="/src/templateProcessor/export.php">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label><b>Name:</b></label>
+                <input type="text" name="name" placeholder="name"/>
+            </div>
         </div>
-    </div>
-    <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <label><b>Street:</b></label>
-            <input type="text" name="street" placeholder="street"/>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label><b>Street:</b></label>
+                <input type="text" name="street" placeholder="street"/>
+            </div>
         </div>
-    </div>
-    <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <label><b>City:</b></label>
-            <input type="text" name="city" placeholder="city"/>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label><b>City:</b></label>
+                <input type="text" name="city" placeholder="city"/>
+            </div>
         </div>
-    </div>
-    <input type="submit" class="button" value="Submit">
-</form>
+        <input type="submit" class="button" value="Submit">
+    </form>
 {% endblock %}

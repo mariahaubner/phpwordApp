@@ -1,64 +1,35 @@
-{% set heading = 'Insert a DataSet for the TemplateProcessor' %}
+{% set heading = 'Generate a Word file with custom Text' %}
 {% extends 'templates/layout.twig' %}
+
 {% block content %}
-<h5>We bet you&rsquo;ll need a form somewhere:</h5>
-<form name="templateProcessor" method="post" action="/src/phpWord/export.php">
-    <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <label>Input Label</label>
-            <input type="text" placeholder="large-12.cell"/>
+    <h5>Generate Word</h5>
+    <form name="phpWordForm" method="post" action="/src/phpWord/export.php">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label><b>Content:</b></label>
+                <textarea name="content" placeholder="Insert your text" rows="15"></textarea>
+            </div>
         </div>
-    </div>
-    <div class="grid-x grid-padding-x">
-        <div class="large-4 medium-4 cell">
-            <label>Input Label</label>
-            <input type="text" placeholder="large-4.cell"/>
-        </div>
-        <div class="large-4 medium-4 cell">
-            <label>Input Label</label>
-            <input type="text" placeholder="large-4.cell"/>
-        </div>
-        <div class="large-4 medium-4 cell">
-            <div class="grid-x">
-                <label>Input Label</label>
-                <div class="input-group">
-                    <input type="text" placeholder="small-9.cell" class="input-group-field"/>
-                    <span class="input-group-label">.com</span>
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+                <label><b>Use this design?</b></label>
+                <input type="radio" name="designChoice" value="1" id="designYes" checked>
+                <label for="designYes">Give it to me!</label>
+                <input type="radio" name="designChoice" value="0" id="designNo">
+                <label for="designNo">Nope!</label>
+            </div>
+            <div class="cell large-6">
+                <div class="card" style="width: 300px;">
+                    <div class="card-divider">
+                        Export Design
+                    </div>
+                    <img src="assets/img/exportDesign.jpg">
+                    <div class="card-section">
+                        <p>One Design for free</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <label>Select Box</label>
-            <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-            </select>
-        </div>
-    </div>
-    <div class="grid-x grid-padding-x">
-        <div class="large-6 medium-6 cell">
-            <label>Choose Your Favorite</label>
-            <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio
-                1</label>
-            <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio
-                2</label>
-        </div>
-        <div class="large-6 medium-6 cell">
-            <label>Template Chooser</label>
-            <input id="checkbox1" type="checkbox"><label for="checkbox1">Orange Invitation</label>
-            <input id="checkbox2" type="checkbox"><label for="checkbox2">White Invitation</label>
-        </div>
-    </div>
-    <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <label>Textarea Label</label>
-            <textarea placeholder="small-12.cell"></textarea>
-        </div>
-    </div>
-    <input type="submit" class="button" value="Submit">
-</form>
+        <input type="submit" class="button" value="Submit">
+    </form>
 {% endblock %}
