@@ -5,16 +5,16 @@ define('BASE_URL', '//');
 
 require_once '/srv/vendor/autoload.php';
 
-
 /**
  * @param array $files
  * @param string $zipName
  * @return null|string
  */
-function createZipFile($files, $zipName) {
-    $zip     = new ZipArchive();
+function createZipFile($files, $zipName)
+{
+    $zip = new ZipArchive();
     $zipName = $zipName . '.zip';
-    $file    = WORD_EXPORTS . $zipName;
+    $file = WORD_EXPORTS . $zipName;
 
     if (file_exists($file)) {
         unlink($file);
@@ -34,12 +34,12 @@ function createZipFile($files, $zipName) {
     return $zipName;
 }
 
-
 /**
  * @param string $fileName
  * @param string $redirect
  */
-function download($fileName, $redirect) {
+function download($fileName, $redirect)
+{
     header('Content-type: octet/stream');
     header('Content-Disposition: attachment; filename="' . $fileName . '"');
     readfile(WORD_EXPORTS . $fileName);
