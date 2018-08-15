@@ -11,25 +11,21 @@ if (isset($_POST['name'])) {
 }
 
 function export() {
+    $name = $_POST['name'];
+    $street = $_POST['street'];
+    $city = $_POST['city'];
 
-    $filename = WORD_FILES . "Invitation_${$_POST['name']}.docx";
+    $filename = "Invitation_$name.docx";
 
     try {
         $templateProcessor = new TemplateProcessor(WORD_FILES . 'Invitation.docx');
         $templateProcessor->setValue('salutation', 'Dear ' . $_POST['name']);
         $templateProcessor->setValue(
             ['city', 'street'],
-            [$_POST['city'], $_POST['street']]
+            [$city, $street]
         );
 
-        /**
-         * TODO:
-         * [Tue Aug 14 18:42:09.494944 2018] [php7:warn] [pid 1048] [client 192.168.56.1:42250] PHP Warning:
-         * copy(/srv/assets/wordFiles/Invitation_joe.docx): failed to open stream:
-         * Permission denied in /srv/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php on line 431,
-         * referer: http://phpword.froscon2018/src/templateProcessor/index.php
-         */
-        $templateProcessor->saveAs($filename);
+        $templateProcessor->saveAs(WORD_FILES . $filename);
 
         download($filename, '/src/templateProcessor/index.php');
 

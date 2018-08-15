@@ -41,8 +41,7 @@ function createZipFile($files, $zipName) {
 function download($fileName, $redirect) {
     header('Content-type: octet/stream');
     header('Content-Disposition: attachment; filename="' . $fileName . '"');
-
-    print_r($fileName);
+    readfile(WORD_FILES . $fileName);
 
     header('Location: ' . BASE_URL . $redirect);
     die();

@@ -41,12 +41,18 @@
                             <input type="text" name="city" placeholder="city"/>
                         </div>
                     </div>
-                    </div>
                     <input type="submit" class="button" value="Submit">
                 </form>
             </div>
         </div>
     </div>
+
+    <div class="large-12 cell">
+        <div class="callout">
+            <a href="/index.html" type="button" class="hollow button">Back to Main Page</a>
+        </div>
+    </div>
+</div>
 </div>
 
 <script src="/assets/js/vendor/jquery.js"></script>
