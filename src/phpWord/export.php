@@ -4,11 +4,8 @@ include_once '../includes.php';
 
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\Element\Section;
 
 if (isset($_POST['content']) && $_POST['content'] !== '') {
-    var_dump($_POST);
-
     export();
 } else {
     error();
@@ -16,12 +13,11 @@ if (isset($_POST['content']) && $_POST['content'] !== '') {
 
 function export()
 {
-    $content = $_POST['content'];
+    $content   = $_POST['content'];
     $useStyles = $_POST['designChoice'] === '1';
 
     $fileName = 'MyGeneratedWord.docx';
-
-    $phpWord = new PhpWord();
+    $phpWord  = new PhpWord();
 
     if ($useStyles) {
         $phpWord = setStyle($phpWord);
@@ -44,7 +40,7 @@ function export()
     $textrun->addText($content);
 
     $textrun = $section->addTextRun();
-    $textrun->addText('New Paragraph! ', ['bold' => true]);
+    $textrun->addText('New Paragraph!phpword office 365 ', ['bold' => true]);
     $textrun->addText('With text...', ['italic' => true]);
 
     $section->addText('Basic table', ['size' => 16, 'bold' => true]);
