@@ -1,7 +1,7 @@
 <?php
 define('WORD_FILES', '/srv/assets/wordFiles/');
 define('WORD_EXPORTS', '/srv/assets/wordFiles/exports');
-define('BASE_URL', 'http://phpword.froscon2018');
+define('BASE_URL', '//');
 
 require_once '/srv/vendor/autoload.php';
 
