@@ -1,9 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 define('WORD_FILES', '/srv/assets/wordFiles/');
-define('WORD_EXPORTS', '/srv/assets/wordFiles/exports');
+define('WORD_EXPORTS', '/tmp/exports');
 define('BASE_URL', '//');
 
-require_once '/srv/vendor/autoload.php';
+mkdir(WORD_EXPORTS);
+
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
  * @param array $files
@@ -43,7 +48,5 @@ function download($fileName, $redirect)
     header('Content-type: octet/stream');
     header('Content-Disposition: attachment; filename="' . $fileName . '"');
     readfile(WORD_EXPORTS . $fileName);
-
-    header('Location: ' . BASE_URL . $redirect);
     die();
 }
