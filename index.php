@@ -10,7 +10,9 @@ $twig = new Twig_Environment($loader);
 $page = 'templates/index.twig';
 if (isset($_GET['page'])) {
     $_page = $_GET['page'];
-    if (preg_match('{^\w+$}', $_page) && file_exists("./src/{$_page}/index.twig")) {
+    if ($_page === 'error') {
+        $page = 'templates/error.twig';
+    } else if (preg_match('{^\w+$}', $_page) && file_exists("./src/{$_page}/index.twig")) {
         $page = "{$_page}/index.twig";
     }
 }

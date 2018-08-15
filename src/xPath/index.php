@@ -2,9 +2,9 @@
 
 include_once '../includes.php';
 
-$templateFile  = "MergeTemplate.docx";
+$templateFile = "MergeTemplate.docx";
 $generatedFile = "MyDocument.docx";
-$targetFile    = "MergeResult.docx";
+$targetFile = "MergeResult.docx";
 
 // copy template to target
 copy($templateFile, $targetFile);
@@ -13,7 +13,7 @@ copy($templateFile, $targetFile);
 $targetZip = new \ZipArchive();
 $targetZip->open($targetFile);
 $targetDocument = $targetZip->getFromName('word/document.xml');
-$targetDom      = new DOMDocument();
+$targetDom = new DOMDocument();
 $targetDom->loadXML($targetDocument);
 $targetXPath = new \DOMXPath($targetDom);
 $targetXPath->registerNamespace("w", "http://schemas.openxmlformats.org/wordprocessingml/2006/main");
@@ -22,7 +22,7 @@ $targetXPath->registerNamespace("w", "http://schemas.openxmlformats.org/wordproc
 $sourceZip = new \ZipArchive();
 $sourceZip->open($generatedFile);
 $sourceDocument = $sourceZip->getFromName('word/document.xml');
-$sourceDom      = new DOMDocument();
+$sourceDom = new DOMDocument();
 $sourceDom->loadXML($sourceDocument);
 $sourceXPath = new \DOMXPath($sourceDom);
 $sourceXPath->registerNamespace("w", "http://schemas.openxmlformats.org/wordprocessingml/2006/main");

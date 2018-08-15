@@ -1,0 +1,9 @@
+{
+  "name": "srv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "foundation-sites": "6.4.2"
+  }
+}

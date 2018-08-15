@@ -41,12 +41,18 @@ function createZipFile($files, $zipName)
 
 /**
  * @param string $fileName
- * @param string $redirect
  */
-function download($fileName, $redirect)
+function download($fileName)
 {
     header('Content-type: octet/stream');
     header('Content-Disposition: attachment; filename="' . $fileName . '"');
     readfile(WORD_EXPORTS . $fileName);
     die();
+}
+
+function error()
+{
+    $host = $_SERVER['HTTP_HOST'];
+    header("Location: http://$host/index.php?page=error");
+    exit;
 }
