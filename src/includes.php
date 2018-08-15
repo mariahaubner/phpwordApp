@@ -1,20 +1,25 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 define('WORD_FILES', '/srv/assets/wordFiles/');
-define('WORD_EXPORTS', '/srv/assets/wordFiles/exports');
-define('BASE_URL', 'http://phpword.froscon2018');
+define('WORD_EXPORTS', '/tmp/exports');
+define('BASE_URL', '//');
 
-require_once '/srv/vendor/autoload.php';
+mkdir(WORD_EXPORTS);
 
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
  * @param array $files
  * @param string $zipName
  * @return null|string
  */
-function createZipFile($files, $zipName) {
-    $zip     = new ZipArchive();
+function createZipFile($files, $zipName)
+{
+    $zip = new ZipArchive();
     $zipName = $zipName . '.zip';
-    $file    = WORD_EXPORTS . $zipName;
+    $file = WORD_EXPORTS . $zipName;
 
     if (file_exists($file)) {
         unlink($file);
@@ -34,16 +39,20 @@ function createZipFile($files, $zipName) {
     return $zipName;
 }
 
-
 /**
  * @param string $fileName
- * @param string $redirect
  */
-function download($fileName, $redirect) {
+function download($fileName)
+{
     header('Content-type: octet/stream');
     header('Content-Disposition: attachment; filename="' . $fileName . '"');
     readfile(WORD_EXPORTS . $fileName);
-
-    header('Location: ' . BASE_URL . $redirect);
     die();
+}
+
+function error()
+{
+    $host = $_SERVER['HTTP_HOST'];
+    header("Location: http://$host/index.php?page=error");
+    exit;
 }

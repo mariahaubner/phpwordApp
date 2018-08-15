@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrosCon2018</title>
+    <link rel="stylesheet" href="/node_modules/foundation-sites/dist/css/foundation.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+            <h1>{{heading|default('Word document creation with CD templates using PHPWord and XPath')}}</h1>
+        </div>
+    </div>
+
+
+    <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+            <div class="callout">
+               {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/what-input/dist/what-input.js"></script>
+<script src="/node_modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>
