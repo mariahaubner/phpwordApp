@@ -9,7 +9,7 @@
         virtualbox.memorySize = 1024;
         virtualbox.sharedFolders = {
           froscon2018 = {
-            hostPath = "/home/maria/froscon2018";
+            hostPath = builtins.toString ./.;
             readOnly = false;
           };
         };
@@ -35,6 +35,11 @@
       environment.systemPackages = with pkgs; [
         phpPackages.composer
       ];
+
+      system.activationScripts.composer = ''
+        cd /srv
+        test -f composer.json && ${pkgs.phpPackages.composer}/bin/composer install
+      '';
 
 #     nginx alternative to apache
 #
