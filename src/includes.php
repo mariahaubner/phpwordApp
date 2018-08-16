@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+define('IMAGES', '/srv/assets/img/');
 define('WORD_FILES', '/srv/assets/wordFiles/');
 define('WORD_EXPORTS', '/tmp/exports');
 define('BASE_URL', '//');

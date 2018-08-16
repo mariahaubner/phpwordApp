@@ -19,18 +19,38 @@ function export()
     $fileName = 'MyGeneratedWord.docx';
     $phpWord  = new PhpWord();
 
-    if ($useStyles) {
-        $phpWord = setStyle($phpWord);
-    }
-
     $section = $phpWord->addSection();
 
     if ($useStyles) {
+        $phpWord->setDefaultFontName('Courier New');
+        $phpWord->setDefaultFontSize(10);
+
+
+        $phpWord->setDefaultParagraphStyle(
+            [
+                "spaceAfter" => 140,
+                "spaceBefore" => 0,
+                "lineHeight" => 1.2,
+                "keepLines" => true
+            ]
+        );
+        $section->getStyle()->setMarginLeft(2.5 * 567);
+        $section->getStyle()->setMarginTop(5.0 * 567);
+        $section->getStyle()->setMarginBottom(10 * 567);
+        $section->getStyle()->setMarginRight(2.0 * 567);
+
+
+        $phpWord->addTableStyle('headerTable', ['borderBottomSize' => 1, 'borderBottomColor' => '000000']);
+
         $header = $section->addHeader();
-        $header->addText('This is my fabulous header!');
+        $headerTable = $header->addTable('headerTable')->addRow();
+        $headerTable->addCell(4500)->addText('A Header got generated!');
+        $headerTable->addCell(4500)->addImage(IMAGES . 'froscon_frog_small.png', ['align' => 'right']);
 
         $footer = $section->addFooter();
-        $footer->addText('Footer text goes here.');
+        $footer->addPreserveText('Page {PAGE} of {NUMPAGES}.');
+
+        $header->addWatermark(IMAGES . 'froscon_frog_transparent.png');
     }
 
 
@@ -58,13 +78,6 @@ function export()
     $objWriter->save(WORD_EXPORTS . $fileName);
 
     download($fileName);
-}
-
-function setStyle(PhpWord $phpWord)
-{
-    #TODO: Header, Footer, Margins, Textstyles, Watermark
-
-    return $phpWord;
 }
 
 
