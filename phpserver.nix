@@ -38,10 +38,12 @@
       ];
 
       system.activationScripts.composer = ''
+      ${pkgs.bash}/bin/bash -f <<EOF
         cd /srv
         echo "installing third-party dependencies"
         test -f composer.json && ${pkgs.phpPackages.composer}/bin/composer install || { echo "composer.json not found - is the shared folder mounted correctly?"; exit 1; }
         test -f package.json && ${pkgs.yarn}/bin/yarn install || { echo "package.json not found - is the shared folder mounted correctly?"; exit 1; }
+      EOF
 
       '';
 
