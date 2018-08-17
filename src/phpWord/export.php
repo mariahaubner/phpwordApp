@@ -53,7 +53,7 @@ function export()
         $header->addWatermark(IMAGES . 'froscon_frog_transparent.png');
     }
 
-
+/*
     $textrun = $section->addTextRun();
     $textrun->addText('Some text. ');
     $textrun->addText('And more Text in this Paragraph.');
@@ -72,7 +72,7 @@ function export()
             $table->addCell(1750)->addText("Row {$row}, Cell {$cell}");
         }
     }
-
+*/
 
     $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
     $objWriter->save(WORD_EXPORTS . $fileName);

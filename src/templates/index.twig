@@ -1,68 +1,69 @@
 {% set heading = 'Word document creation with CD templates using PHPWord and XPath' %}
 {% extends 'templates/layout.twig' %}
 {% block content %}
-<div class="grid-container">
-    <div class="grid-x grid-padding-x small-up-2 medium-up-2 large-up-2">
-        <div class="cell">
-            <div class="card">
-                <div class="card-divider">
-                    <a href="?page=templateProcessor">
-                        <h2>Template Processor</h2>
-                    </a>
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x small-up-2 medium-up-2 large-up-2">
+            <div class="cell">
+                <div class="card">
+                    <div class="card-divider">
+                        <a href="?page=templateProcessor">
+                            <h2>Template Processor</h2>
+                        </a>
+                    </div>
+                    <img src="/assets/img/tempPro.jpg">
+                    <div class="card-section">
+                        <p>Fill a pre-created Word with data!</p>
+                    </div>
                 </div>
-                <img src="assets/img/generic/rectangle-1.jpg">
-                <div class="card-section">
-                    <h4>This is a card.</h4>
-                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
+            </div>
+            <div class="cell">
+                <div class="card">
+                    <div class="card-divider">
+                        <a href="?page=phpWord">
+                            <h2>Creating from Scratch</h2>
+                        </a>
+                    </div>
+                    <img src="/assets/img/generate.jpg">
+                    <div class="card-section">
+                        <p>Generate your whole document in PHP!</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="cell">
-            <div class="card">
-                <div class="card-divider">
-                    <a href="?page=phpWord">
-                        <h2>Creating from Scratch</h2>
-                    </a>
-                </div>
-                <img src="assets/img/generic/rectangle-1.jpg">
-                <div class="card-section">
-                    <h4>This is a card.</h4>
-                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="grid-x grid-padding-x small-up-2 medium-up-2 large-up-2">
-        <div class="cell">
-            <div class="card">
-                <div class="card-divider">
-                    <a href="?page=ioFactory">
-                        <h2>IO Factory</h2>
-                    </a>
-                </div>
-                <img src="assets/img/generic/rectangle-1.jpg">
-                <div class="card-section">
-                    <h4>This is a card.</h4>
-                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
+        <div class="grid-x grid-padding-x small-up-2 medium-up-2 large-up-2">
+            <div class="cell">
+                <div class="card">
+                    <div class="card-divider">
+                        <a href="?page=ioFactory">
+                            <h2>IO Factory</h2>
+                        </a>
+                    </div>
+                    <img src="/assets/img/ioFactory.jpg">
+                    <div class="card-section">
+                        <p>Merge a pre-created Template with generated content..?</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="cell">
-            <div class="card">
-                <div class="card-divider">
-                    <a href="?page=xPath">
-                        <h2>Merging with XPath</h2>
-                    </a>
-                </div>
-                <img src="assets/img/generic/rectangle-1.jpg">
-                <div class="card-section">
-                    <h4>This is a card.</h4>
-                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
+            <div class="cell">
+                <div class="card">
+                    <div class="card-divider">
+                        <a href="?page=xPath">
+                            <h2>Merging with XPath</h2>
+                        </a>
+                    </div>
+                    <img src="/assets/img/xPath.jpg">
+                    <div class="card-section">
+                        <p>Merge a pre-created Template with generated content!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
- {% endblock %}
+    <div>
+        <a href="https://unsplash.com/" style="position: absolute; right: 10px; bottom: 2px; font-size: 12px;">
+            Stock Photos by uplash.com
+        </a>
+    </div>
+{% endblock %}
 
 {% block return %}{% endblock %}
