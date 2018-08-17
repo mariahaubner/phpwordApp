@@ -30,7 +30,9 @@
                             <div class="card-divider">
                                 Export Design
                             </div>
-                            <img src="/assets/img/generatedDesign_small.png">
+                            <a href="#" data-open="modalGen">
+                                <img src="/assets/img/generatedDesign_small.png">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -38,4 +40,5 @@
         </div>
         <input type="submit" class="button" value="Submit">
     </form>
+    {% include '/templates/modal.twig' with {'id': 'modalGen', 'img': '/assets/img/generatedDesign.png'} %}
 {% endblock %}

@@ -18,10 +18,13 @@
                     <div class="card-divider">
                         Orange Design
                     </div>
+                    <a href="#" data-open="modalIO">
                     <img src="/assets/img/ioFactoryDesign_small.png">
+                    </a>
                 </div>
             </div>
         </div>
         <input type="submit" class="button" value="Submit">
     </form>
+    {% include '/templates/modal.twig' with {'id': 'modalIO', 'img': '/assets/img/ioFactoryDesign.png'} %}
 {% endblock %}

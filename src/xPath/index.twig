@@ -20,7 +20,9 @@
                             <div class="card-divider">
                                 Export Design
                             </div>
-                            <img src="/assets/img/xPathTemplateOrange_small.png">
+                            <a href="#" data-open="modalOrange">
+                                <img src="/assets/img/xPathTemplateOrange_small.png">
+                            </a>
                             <div class="card-section">
                                 <input type="radio" name="templateChoice" value="orange" id="templateOrange" checked>
                                 <label for="templateOrange">Orange Template</label>
@@ -32,7 +34,9 @@
                             <div class="card-divider">
                                 Export Design
                             </div>
-                            <img src="/assets/img/xPathTemplateBlue_small.png">
+                            <a href="#" data-open="modalBlue">
+                                <img src="/assets/img/xPathTemplateBlue_small.png">
+                            </a>
                             <div class="card-section">
                                 <input type="radio" name="templateChoice" value="blue" id="templateBlue">
                                 <label for="templateBlue">Blue, please</label>
@@ -44,4 +48,6 @@
         </div>
         <input type="submit" class="button" value="Submit">
     </form>
+    {% include '/templates/modal.twig' with {'id': 'modalOrange', 'img': '/assets/img/xPathTemplateOrange.png'} %}
+    {% include '/templates/modal.twig' with {'id': 'modalBlue', 'img': '/assets/img/xPathTemplateBlue.png'} %}
 {% endblock %}
