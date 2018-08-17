@@ -53,17 +53,16 @@ function export()
         $header->addWatermark(IMAGES . 'froscon_frog_transparent.png');
     }
 
+    $parts = explode("\n", $content);
 
+    foreach ($parts as $part) {
+        $section->addText($part);
+    }
+
+    /*
     $textrun = $section->addTextRun();
-    $textrun->addText('Some text. ');
-    $textrun->addText('And more Text in this Paragraph.');
-    $textrun->addText($content);
-
-    $textrun = $section->addTextRun();
-    $textrun->addText('New Paragraph!phpword office 365 ', ['bold' => true]);
-    $textrun->addText('With text...', ['italic' => true]);
-
-    $section->addText('Basic table', ['size' => 16, 'bold' => true]);
+    $textrun->addText('Basic table', ['size' => 16, 'bold' => true]);
+    $textrun->addText('because we can');
 
     $table = $section->addTable();
     for ($row = 1; $row <= 8; $row++) {
@@ -72,6 +71,7 @@ function export()
             $table->addCell(1750)->addText("Row {$row}, Cell {$cell}");
         }
     }
+    */
 
 
     $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
