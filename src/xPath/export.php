@@ -1,7 +1,11 @@
 <?php
 include_once '../includes.php';
 
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\IOFactory;
+
 if (isset($_POST['content']) && $_POST['content'] !== '') {
+    generateContentFile();
     export();
 } else {
     error();
@@ -9,8 +13,7 @@ if (isset($_POST['content']) && $_POST['content'] !== '') {
 
 function export()
 {
-    # TODO: Use genereated file insted of static - use content input
-    $generatedFile = WORD_FILES . "Tmp.docx";
+    $generatedFile = WORD_EXPORTS . "Tmp.docx";
     $templateFile = WORD_FILES . "XPathTemplateOrange.docx";
 
     if ($_POST['templateChoice'] === 'blue') {
@@ -60,4 +63,21 @@ function export()
     $targetZip->close();
 
     download($targetFileName);
+}
+
+function generateContentFile()
+{
+    $content = $_POST['content'];
+
+    $phpWord = new PhpWord();
+    $section = $phpWord->addSection();
+
+    $parts = explode("\n", $content);
+
+    foreach ($parts as $part) {
+        $section->addText($part);
+    }
+    
+    $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
+    $objWriter->save(WORD_EXPORTS . 'Tmp.docx');
 }
