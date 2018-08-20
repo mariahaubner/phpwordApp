@@ -13,6 +13,7 @@
             readOnly = false;
           };
         };
+        targetHost = "192.168.56.111";
       };
 
       services.httpd = {
@@ -31,6 +32,7 @@
       };
 
       networking.firewall.allowedTCPPorts = [ 80 ];
+      networking.interfaces.enp0s8.ipv4.addresses = [ { address = "192.168.56.111"; prefixLength = 24; } ];
 
       environment.systemPackages = with pkgs; [
         phpPackages.composer

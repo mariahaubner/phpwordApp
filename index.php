@@ -14,6 +14,8 @@ if (isset($_GET['page'])) {
         $page = 'templates/error.twig';
     } else if (preg_match('{^\w+$}', $_page) && file_exists("./src/{$_page}/index.twig")) {
         $page = "{$_page}/index.twig";
+    } else if (preg_match('{^\w+\/\w+$}', $_page) && file_exists("./src/{$_page}.twig")) {
+        $page = "{$_page}.twig";
     }
 }
 

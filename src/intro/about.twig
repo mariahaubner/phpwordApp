@@ -1,0 +1,52 @@
+{% set heading = ' ' %}
+
+{% extends 'templates/layout.twig' %}
+{% block content %}
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell" style="height: 535px !important;">
+                <div style="margin: 80px">
+                    <h1>About Me:</h1>
+                    <div style="font-size: x-large; margin-left: 40px; margin-top: 20px">
+                        <ul style="background-image: url('/assets/img/mayflower_logo_transparent.png'); background-repeat: no-repeat; background-position: right top; background-size: 20%;">
+                            <li>studied at Julius-Maximilians-University (JMU) in Würzburg</li>
+                            <li>works at Mayflower GmbH in Würzburg</li>
+                            <li>... since 2014</li>
+                            <li>GitHub: https://github.com/mariahaubner</li>
+                            <li>Twitter: @EzriFox</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block return %}
+    <div class="large-12 cell">
+        <div class="callout">
+            <div class="grid-x grid-margin-x">
+                <div class="large-5 cell">
+                    <div>
+                        FrosCon 2018 - Bonn
+                    </div>
+                </div>
+
+                <div class="large-2 cell">
+                    <div style="text-align: center;">
+                        <a href="?page=intro/phpWord" type="button" class="hollow button" style="margin-bottom: 0">
+                            About PhpWord
+                        </a>
+                    </div>
+                </div>
+
+                <div class="large-5 cell">
+                    <div style="text-align: right;">
+                        Maria Haubner - Mayflower Gmbh
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

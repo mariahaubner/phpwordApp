@@ -77,7 +77,7 @@ function generateContentFile()
     foreach ($parts as $part) {
         $section->addText($part);
     }
-    
+
     $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
     $objWriter->save(WORD_EXPORTS . 'Tmp.docx');
 }

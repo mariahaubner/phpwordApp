@@ -1,0 +1,57 @@
+{% set heading = ' ' %}
+
+{% extends 'templates/layout.twig' %}
+{% block content %}
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell" style="height: 535px !important;">
+                <div style="margin: 80px">
+                    <h1 style="background-image: url('/assets/img/phpWord_logo.png'); background-repeat: no-repeat; background-position: right top; background-size: 35%;">
+                        About PHPWord:
+                    </h1>
+                    <div style="font-size: x-large; margin-left: 40px; margin-top: 20px;">
+                        <ul>
+                            <li>https://github.com/PHPOffice/PHPWord</li>
+                            <li>pure PHP library</li>
+                            <li>easily used via composer</li>
+                            <li>licenced under LGPL v3</li>
+                            <li>supports OOXML, ODF, RTF, HTML and PDF</li>
+                            <li>good Q&A situation on StackOverFlow and the GitHub Issues</li>
+                            <li>large backlog of issues and PRs</li>
+                            <li>new maintainer: troosan since May, 2017</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block return %}
+    <div class="large-12 cell">
+        <div class="callout">
+            <div class="grid-x grid-margin-x">
+                <div class="large-5 cell">
+                    <div>
+                        FrosCon 2018 - Bonn
+                    </div>
+                </div>
+
+                <div class="large-2 cell">
+                    <div style="text-align: center;">
+                        <a href="?page=intro/github" type="button" class="hollow button" style="margin-bottom: 0">
+                            Show me more!
+                        </a>
+                    </div>
+                </div>
+
+                <div class="large-5 cell">
+                    <div style="text-align: right;">
+                        Maria Haubner - Mayflower Gmbh
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -4,23 +4,35 @@
     <h5>Guest List for the party</h5>
     <form name="templateProcessorForm" method="post" action="/src/templateProcessor/export.php">
         <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-                <label><b>Name:</b></label>
-                <input type="text" name="name" placeholder="name"/>
+            <div class="large-7 cell">
+                <div class="grid-x grid-padding-x">
+                    <div class="large-12 cell">
+                        <label><b>Name:</b></label>
+                        <input type="text" name="name" placeholder="name"/>
+                    </div>
+                    <div class="large-12 cell">
+                        <label><b>Street:</b></label>
+                        <input type="text" name="street" placeholder="street"/>
+                    </div>
+                    <div class="large-12 cell">
+                        <label><b>City:</b></label>
+                        <input type="text" name="city" placeholder="city"/>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-                <label><b>Street:</b></label>
-                <input type="text" name="street" placeholder="street"/>
-            </div>
-        </div>
-        <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-                <label><b>City:</b></label>
-                <input type="text" name="city" placeholder="city"/>
+            <div class="large-5 cell">
+                <label><b>Fill this Template:</b></label>
+                <div class="card" style="width: 400px;">
+                    <div class="card-divider">
+                        Invitation
+                    </div>
+                    <a href="#" data-open="modalTempPro">
+                        <img src="/assets/img/invitation_small.png">
+                    </a>
+                </div>
             </div>
         </div>
         <input type="submit" class="button" value="Submit">
     </form>
+    {% include '/templates/modal.twig' with {'id': 'modalTempPro', 'img': '/assets/img/invitation.png', 'class': 'large'} %}
 {% endblock %}
