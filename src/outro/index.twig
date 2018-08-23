@@ -1,0 +1,53 @@
+{% set heading = ' ' %}
+
+{% extends 'templates/layout.twig' %}
+{% block content %}
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell" style="height: 535px !important;">
+                <div style="margin: 80px">
+                    <h1>Further Reading:</h1>
+                    <div style="font-size: x-large; margin-left: 40px; margin-top: 20px">
+                        <ul>
+                            <li>https://phpword.readthedocs.io/en/latest/</li>
+                            <li style="list-style: '-> '">PHPWord documentation</li>
+                            <li>https://blog.mayflower.de/6699-phpword-create-documents.html</li>
+                            <li style="list-style: '-> '">Blog article: "Three ways to create Word documents with PHPWord"</li>
+                            <li>https://docs.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb266220(v=office.12)</li>
+                            <li style="list-style: '-> '">XML structure of Word documents</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block return %}
+    <div class="large-12 cell" style="font-size: medium">
+        <div class="callout">
+            <div class="grid-x grid-margin-x">
+                <div class="large-5 cell">
+                    <div>
+                        FrosCon 2018 - Bonn
+                    </div>
+                </div>
+
+                <div class="large-2 cell">
+                    <div style="text-align: center;">
+                        <a href="?page=outro/thanks" type="button" class="button" style="margin-bottom: 0">
+                            Bye bye
+                        </a>
+                    </div>
+                </div>
+
+                <div class="large-5 cell">
+                    <div style="text-align: right;">
+                        Maria Haubner - Mayflower Gmbh
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -44,8 +44,8 @@ function export()
     $sourceXPath = new \DOMXPath($sourceDom);
     $sourceXPath->registerNamespace("w", "http://schemas.openxmlformats.org/wordprocessingml/2006/main");
 
-    /** @var DOMNode $placeholderNode node containing the replacement marker PLACEHOLDER$ */
-    $placeholderNode = $targetXPath->query('//w:p[contains(translate(normalize-space(), " ", ""),"PLACEHOLDER")]')[0];
+    /** @var DOMNode $placeholderNode node containing the replacement marker $PLACEHOLDER$ */
+    $placeholderNode = $targetXPath->query('//w:p[contains(translate(normalize-space(), " ", ""),"$PLACEHOLDER$")]')[0];
 
     // insert source nodes before the replacement marker
     $sourceNodes = $sourceXPath->query('//w:document/w:body/*[not(self::w:sectPr)]');
@@ -78,6 +78,11 @@ function generateContentFile()
         $section->addText($part);
     }
 
-    $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
-    $objWriter->save(WORD_EXPORTS . 'Tmp.docx');
+    try {
+        $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save(WORD_EXPORTS . 'Tmp.docx');
+    } catch (Exception $e) {
+        error_log(print_r($e, 1));
+        error();
+    }
 }

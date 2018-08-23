@@ -59,10 +59,10 @@ function export()
         $section->addText($part);
     }
 
-    /*
+
     $textrun = $section->addTextRun();
     $textrun->addText('Basic table', ['size' => 16, 'bold' => true]);
-    $textrun->addText('because we can');
+    $textrun->addText(' because we can');
 
     $table = $section->addTable();
     for ($row = 1; $row <= 8; $row++) {
@@ -71,13 +71,16 @@ function export()
             $table->addCell(1750)->addText("Row {$row}, Cell {$cell}");
         }
     }
-    */
 
+    try {
+        $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save(WORD_EXPORTS . $fileName);
 
-    $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
-    $objWriter->save(WORD_EXPORTS . $fileName);
-
-    download($fileName);
+        download($fileName);
+    } catch (Exception $e) {
+        error_log(print_r($e, 1));
+        error();
+    }
 }
 
 
