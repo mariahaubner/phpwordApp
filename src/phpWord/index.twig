@@ -1,4 +1,4 @@
-{% set heading = 'Generate a Word file with custom Text' %}
+{% set heading = 'Generate a Word file with custom text' %}
 {% extends 'templates/layout.twig' %}
 
 {% block content %}
@@ -15,16 +15,6 @@
             <div class="large-5 cell">
                 <label><b>Use this design?</b></label>
                 <div class="grid-x grid-padding-x">
-                    <div class="large-6 cell">
-                        <div>
-                            <input type="radio" name="designChoice" value="1" id="designYes">
-                            <label for="designYes">Give it to me!</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="designChoice" value="0" id="designNo" checked>
-                            <label for="designNo">Nope!</label>
-                        </div>
-                    </div>
                     <div class="cell large-6">
                         <div class="card" style="width: 200px;">
                             <div class="card-divider">
@@ -33,6 +23,16 @@
                             <a href="#" data-open="modalGen">
                                 <img src="/assets/img/generatedDesign_small.png">
                             </a>
+                        </div>
+                    </div>
+                    <div class="large-6 cell">
+                        <div>
+                            <input type="radio" name="designChoice" value="1" id="designYes">
+                            <label for="designYes">Give it to me!</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="designChoice" value="0" id="designNo" checked>
+                            <label for="designNo">Nope!</label>
                         </div>
                     </div>
                 </div>
