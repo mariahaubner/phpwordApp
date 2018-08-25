@@ -27,6 +27,6 @@ $ nixops delete -d NAME
 ```
 
 
-#License
+# License
 
 MIT
